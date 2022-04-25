@@ -6,14 +6,190 @@
 html, body {
   height:100%;
   margin:0;
+  background-image: linear-gradient(rgb(97, 202, 254) 50%,rgb(45, 170, 55) 50%);
+  overflow: hidden;
 }
 
 button:not([disabled]) {
   cursor:pointer;
 }
 
-/* jouw CSS vanaf hier */
+/* EEVEE */
 
-h1 {
-  color:crimson;
+.eevee {
+  width: 14em;
+  height: 12em;
+  position: absolute;
+  /* left: 10em; */
+  top: 25em;
+  animation-name: eevee;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes eevee {
+  0% {transform: translatex(-18em)}
+  100% {transform:translatex(calc(100vw + 14em))}
+}
+
+/* THUNDERSTONE */
+
+img.ThunderstoneEvolve {
+	content: url("../images/jolteon.png");
+}
+
+button {
+  position: absolute;
+  left: 15em;
+  top: 29em;
+  background:none;
+  border:none;
+  outline:none;
+}
+
+button:hover {
+  filter: 
+    drop-shadow(0 0 0.125em dodgerblue)
+    drop-shadow(0 0 0.25em dodgerblue)
+    drop-shadow(0 0 0.5em dodgerblue  )
+    drop-shadow(0 0 0.75em gold);
+}
+
+.thunderstone {
+  width:3em;
+  height: 3em;
+
+}
+
+/* ROAD */
+
+.road {
+  width: 100em;
+  height: 7em;
+  top: 30em;
+  position: absolute;
+  background-color: hsl(45 100% 35%);
+}
+
+/* CLOUDS */
+
+.cloud1 {
+  width: 20em;
+  height: 6em;
+  background: rgb(255 255 255);
+  border-radius: 25em;
+  position: absolute;
+  top: 11em;
+  left: -25em;
+  animation-name: cloud1;
+  animation-duration: 300s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: -150s;
+  opacity: .9;
+}
+.cloud1:before {
+  content: "";
+  position: absolute;
+  top: -5em;
+  box-sizing: border-box;
+  height: 10em;
+  width: 10em;
+  left: 4em;
+  border-radius: 50%;
+  background: rgb(255 255 255);
+}
+.cloud1:after {
+  content: "";
+  position: absolute;
+  height: 14em;
+  width: 14em;
+  top: -8em;
+  left: 11em;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+}
+@keyframes cloud1 {
+  0% {transform: translatex(0em)}
+  100% {transform: translatex(calc(100vw + 25em))}
+}
+
+.cloud2 {
+  width: 20em;
+  height: 6em;
+  background: rgb(255, 255, 255);
+  border-radius: 25em;
+  position: absolute;
+  top: 9em;
+  left: -25em;
+  animation-name: cloud1;
+  animation-duration: 300s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: -300s;
+  opacity: .9;
+}
+.cloud2:before {
+  content: "";
+  position: absolute;
+  top: -5em;
+  box-sizing: border-box;
+  height: 10em;
+  width: 10em;
+  left: 4em;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+}
+.cloud2:after {
+  content: "";
+  position: absolute;
+  height: 14em;
+  width: 14em;
+  top: -8em;
+  left: 11em;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+}
+
+/* SUN */
+
+.suncore {
+  width: 7em;
+  height: 7em;
+  position: absolute;
+  top: 2em;
+  left: 8em;
+  background: hsl(45, 100%, 60%);
+  border-radius: 50%
+}
+
+.sunrays {
+  background: rgb(241, 148, 0);
+  top: 2.5em;
+  left: 8.5em;
+  width: 6em;
+  height: 6em;
+  position: absolute;
+  animation-name: sunrays;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.sunrays:before {
+  content: "";
+  background: rgb(241, 148, 0);
+  top: 0em;
+  left: 0em;
+  width: 6em;
+  height: 6em;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+@keyframes sunrays {
+  0% {transform: rotate(0)}
+  100% {transform: rotate(180deg)}
 }

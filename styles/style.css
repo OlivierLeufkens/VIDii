@@ -10,9 +10,20 @@ html, body {
   overflow: hidden;
 }
 
+/***********/
+/* CUSTOM PROPORITIES */
+/***********/
+
 :root {
   --size: 4em;
 }
+
+
+
+/***********/
+/* LOGO - HEADER */
+/***********/
+
 #logoContainer {
   width: 100%;
   margin-top: 1em;
@@ -23,22 +34,10 @@ html, body {
 .logo {
   width: 50%;
   max-width: 20em;
-  z-index: 1;
+  z-index: 3;
 }
 
-/***********/
-/* BUTTON - GENERAL */
-/***********/
-button:not([disabled]) {
-  cursor:pointer;
-}
 
-button {
-  background:none;
-  border:none;
-  outline:none;
-  z-index: 1;
-}
 
 /***********/
 /* EEVEE */
@@ -50,32 +49,43 @@ button {
   top: 25em;
   z-index: 2;
 
+/* ANIMATION EEVEE */
   animation-name: eevee;
   animation-duration: 30s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-/* ANIMATIE EEVEE */
 @keyframes eevee {
   0% {transform: translatex(-18em)}
   100% {transform:translatex(calc(100vw + 14em))}
 }
 
-/************/
-/* BUTTONS */
-/************/
 
-/* THUNDERSTONE - BUTTON */
+
+/*********************/
+/* BUTTONS - STONES  */
+/*********************/
+
+button:not([disabled]) {
+  cursor:pointer;
+}
+
+button {
+  background:none;
+  border:none;
+  outline:none;
+  z-index: 1;
+}
+
+/* THUNDERSTONE */
+/****************/
 img.ThunderstoneEvolve {
 	content: url("../images/jolteon.png");
 }
 
-.thunderstone{
-  width: 100%;
-}
-
-button:nth-of-type(1){
+/* BUTTON */
+button:nth-of-type(1) {
   width:var(--size);
   height: 3em;
   left: 15em;
@@ -83,41 +93,95 @@ button:nth-of-type(1){
   position: absolute;
 }
 
-.thunderstone:hover{
+/* TOOLTIP */
+button:nth-of-type(1)::after {
+  content:"Je hebt een Thunderstone gevonden! Klik om Eevee te evolueren in Jolteon";
+  background-color: aliceblue;
+  border-radius: 10%;
+  position: absolute;
+  bottom:100%;
+  left:-10%;
+  border: 2px solid rgb(255, 235, 0);
+  padding: 1em;
+  opacity:0;
+  transition:.5s;
+}
+
+button:nth-of-type(1):hover::after {
+  opacity:1;
+  transform: translatey(-1em);
+  
+}
+
+/* PICTURE IN BUTTON */
+.thunderstone {
+  width: 100%;
+  transition:.3s;
+}
+
+button:nth-of-type(1):hover .thunderstone {
+  filter: 
+    drop-shadow(0 0 0.125em yellow)
+    drop-shadow(0 0 0.25em yellow)
+    drop-shadow(0 0 0.5em yellow)
+    drop-shadow(0 0 0.75em gold);
+  z-index: 3;
+  transform: translatey(-.5em);
+}
+
+/* WATERSTONE */
+/**************/
+img.WaterstoneEvolve {
+	content: url("../images/vaporeon.png");
+}
+
+/* BUTTON */
+button:nth-of-type(2){
+  width:var(--size);
+  height:3em;
+  bottom:20em;
+  left:35em;
+  position: absolute;
+}
+
+/* TOOLTIP */
+button:nth-of-type(2)::after {
+  content:"Je hebt een Waterstone gevonden! Klik om Eevee te evolueren in Vaporeon.";
+  background-color: aliceblue;
+  border-radius: 10%;
+  position: absolute;
+  bottom:100%;
+  left:-10%;
+  border: 2px solid rgb(95, 160, 255);
+  padding: 1em;
+  opacity:0;
+  transition:.5s;
+}
+
+button:nth-of-type(2):hover::after {
+  opacity:1;
+  transform: translatey(-1em);
+  
+}
+
+/* PICTURE IN BUTTON */
+.waterstone {
+  width: 100%;
+  transition:.3s;
+}
+
+button:nth-of-type(2):hover .waterstone {
   filter: 
     drop-shadow(0 0 0.125em dodgerblue)
     drop-shadow(0 0 0.25em dodgerblue)
     drop-shadow(0 0 0.5em dodgerblue)
     drop-shadow(0 0 0.75em gold);
   z-index: 3;
+  transform: translatey(-.5em);
 }
 
-/* WATERSTONE - BUTTON */
-img.WaterstoneEvolve {
-	content: url("../images/vaporeon.png");
-}
-
-.waterstone {
-  width:100%;
-}
-
-button:nth-of-type(2){
-  width:var(--size);
-  height:3em;
-  bottom:12em;
-  left:25em;
-  position: absolute;
-}
-
-.waterstone:hover {
-  filter: 
-    drop-shadow(0 0 0.15em hsl(240, 75%, 60%))
-    drop-shadow(0 0 0.2em hsl(240, 75%, 70%))
-    drop-shadow(0 0 0.5em hsl(240, 75%, 90%))
-    drop-shadow(0 0 0.5em hsl(180, 80%, 60%));
-}
-
-/* FIRESTONE - BUTTON */
+/* FIRESTONE */
+/*************/
 img.FirestoneEvolve {
 	content: url("../images/flareon.png");
 }
@@ -129,18 +193,179 @@ img.FirestoneEvolve {
 button:nth-of-type(3) {
   width:var(--size);
   height:3em;
-  bottom:14em;
-  right:10em;
+  bottom:3em;
+  left: 47em;
   position: absolute;
+  z-index: 3;
 }
 
-.firestone:hover {
-  filter: 
-    drop-shadow(0 0 0.15em hsl(20, 95%, 45%))
-    drop-shadow(0 0 0.2em hsl(20, 95%, 55%))
-    drop-shadow(0 0 0.5em hsl(20, 95%, 70%))
-    drop-shadow(0 0 0.5em hsl(50, 90%, 50%));
+/* TOOLTIP */
+button:nth-of-type(3)::after {
+  content:"Je hebt een Firestone gevonden! Klik om Eevee te evolueren in Flareon";
+  background-color: aliceblue;
+  border-radius: 10%;
+  position: absolute;
+  bottom:10%;
+  right: 10%;
+  left: -100%;
+  border: 2px solid orange;
+  padding: 1em;
+  opacity:0;
+  transition:.5s;
 }
+
+button:nth-of-type(3):hover::after {
+  opacity:1;
+  transform: translatey(-1em);
+  
+}
+
+/* PICTURE IN BUTTON */
+.firestone {
+  width: 100%;
+  transition:.3s;
+}
+
+button:nth-of-type(3):hover .firestone {
+  filter: 
+    drop-shadow(0 0 0.125em orange)
+    drop-shadow(0 0 0.25em orange)
+    drop-shadow(0 0 0.5em orange)
+    drop-shadow(0 0 0.75em gold);
+  z-index: 3;
+  transform: translatey(-.5em);
+}
+
+/* FRIENDSHIP */
+/**************/
+img.friendshipEvolve {
+	content: url("../images/sylveon.png");
+}
+
+/* BUTTON */
+button:nth-of-type(4) {
+  top: 2em;
+  right: -7em;
+  position: absolute;
+  z-index: 4;
+}
+
+/* TOOLTIP */
+button:nth-of-type(4)::after {
+  content:"Klik om je vriendschap met Eevee te verhogen!";
+  background-color: aliceblue;
+  position: absolute;
+  bottom:35%;
+  left:-60%;
+  border: 2px solid hsl(0, 100%, 45%);
+  padding: 1em;
+  opacity:0;
+  transition:.5s;
+}
+
+button:nth-of-type(4):hover::after {
+  opacity:1;
+}
+
+/* PICTURE IN BUTTON */
+.friendship {
+  width: 35%;
+  transition:.3s;
+}
+
+button:nth-of-type(4):hover .friendship {
+  filter: 
+    drop-shadow(0 0 0.125em dodgerblue)
+    drop-shadow(0 0 0.25em dodgerblue)
+    drop-shadow(0 0 0.5em dodgerblue)
+    drop-shadow(0 0 0.75em hsl(50, 90%, 50%));
+}
+
+/* DAY/NIGHT */
+/**************/
+img.nightEvolve {
+	content: url("../images/umbreon.png");
+}
+
+/* BUTTON */
+button:nth-of-type(5) {
+  top: 12em;
+  right: -7em;
+  position: absolute;
+  z-index: 5;
+}
+
+/* TOOLTIP */
+button:nth-of-type(5)::after {
+  content:"Klik om om te schakelen naar nacht.";
+  background-color: aliceblue;
+  position: absolute;
+  bottom:35%;
+  left:-42%;
+  border: 2px solid hsl(230, 100%, 30%);
+  padding: 1em;
+  opacity:0;
+  transition:.5s;
+}
+
+button:nth-of-type(5):hover::after {
+  opacity:1;
+  scale: 1.2;
+}
+
+/* PICTURE IN BUTTON */
+.night {
+  width: 35%;
+  transition:.3s;
+}
+
+button:nth-of-type(5):hover .night {
+  filter: 
+    drop-shadow(0 0 0.125em dodgerblue)
+    drop-shadow(0 0 0.25em dodgerblue)
+    drop-shadow(0 0 0.5em dodgerblue)
+    drop-shadow(0 0 0.75em white);
+}
+
+/* ICESTONE/ICEROCK */
+/********************/
+img.icestoneEvolve {
+	content: url("../images/glaceon.png");
+}
+
+/* BUTTON */
+button:nth-of-type(6) {
+  top: 18em;
+  left: 6em;
+  position: absolute;
+  z-index: 0;
+}
+
+/* PICTURE IN BUTTON */
+.icestone {
+  width: 60%;
+}
+
+/* MOSS ON ROCK */
+/********************/
+img.mossEvolve {
+	content: url("../images/leafeon.png");
+}
+
+/* BUTTON */
+button:nth-of-type(7) {
+  top: 24em;
+  left: 55em;
+  position: absolute;
+  z-index: 0;
+}
+
+/* PICTURE IN BUTTON */
+.moss {
+  width: 20em;
+}
+
+
 
 /*****************/
 /* BACKGROUND ELEMENTS */
@@ -163,7 +388,49 @@ button:nth-of-type(3) {
   left: 2em;
   position: absolute;
   z-index: 2;
+  opacity: 98%;
 }
+
+.bush2 {
+  width: 13em;
+  height: 9em;
+  bottom: 1em;
+  left: 40em;
+  position: absolute;
+  z-index: 4;
+  opacity: 98%;
+}
+
+.bush3 {
+  width: 12em;
+  height: 9em;
+  top: 16em;
+  left: 30em;
+  position: absolute;
+  z-index: 2;
+  opacity: 98%;
+}
+
+.bush4 {
+  width: 12em;
+  height: 9em;
+  top: 20.5em;
+  left: 55em;
+  position: absolute;
+  z-index: 1;
+  opacity: 98%;
+}
+
+.bush5 {
+  width: 13em;
+  height: 9em;
+  bottom: 1em;
+  left: 12em;
+  position: absolute;
+  z-index: 4;
+  opacity: 98%;
+}
+
 
 /* CLOUDS */
 .cloud1 {
@@ -174,6 +441,8 @@ button:nth-of-type(3) {
   position: absolute;
   top: 11em;
   left: -25em;
+
+/* ANIMATION CLOUDS */
   animation-name: cloud1;
   animation-duration: 300s;
   animation-iteration-count: infinite;
@@ -181,6 +450,12 @@ button:nth-of-type(3) {
   animation-delay: -150s;
   opacity: .9;
 }
+
+@keyframes cloud1 {
+  0% {transform: translatex(0em)}
+  100% {transform: translatex(calc(100vw + 25em))}
+}
+
 .cloud1:before {
   content: "";
   position: absolute;
@@ -202,12 +477,6 @@ button:nth-of-type(3) {
   border-radius: 50%;
   box-sizing: border-box;
   background: rgb(255, 255, 255);
-}
-
-/* CLOUD ANIMATION */
-@keyframes cloud1 {
-  0% {transform: translatex(0em)}
-  100% {transform: translatex(calc(100vw + 25em))}
 }
 
 .cloud2 {
@@ -260,6 +529,14 @@ button:nth-of-type(3) {
   left: 8em;
   background: hsl(45, 100%, 60%);
   border-radius: 50%
+}
+
+.suncore:hover {
+  filter: 
+    drop-shadow(0 0 0.125em hsl(36, 100%, 45%))
+    drop-shadow(0 0 0.25em hsl(36, 100%, 45%))
+    drop-shadow(0 0 0.5em hsl(36, 100%, 45%))
+    drop-shadow(0 0 0.75em gold);
 }
 
 .sunrays {

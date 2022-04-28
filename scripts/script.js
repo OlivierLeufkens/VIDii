@@ -31,3 +31,43 @@ deButton.addEventListener("click", EvolveFlareon);
 function EvolveFlareon() {
 	flareon.classList.toggle("FirestoneEvolve");
 }
+
+// FRIENDSHIP --> SYLVEON
+var deButton = document.querySelector(".friendship");
+var sylveon = document.querySelector(".eevee");
+
+deButton.addEventListener("click", EvolveSylveon);
+
+function EvolveSylveon() {
+	sylveon.classList.toggle("friendshipEvolve");
+}
+
+// DAY/NIGHT --> UMBREON
+var deButton = document.querySelector(".night");
+var umbreon = document.querySelector(".eevee");
+
+deButton.addEventListener("click", EvolveUmbreon);
+
+function EvolveUmbreon() {
+	umbreon.classList.toggle("nightEvolve");
+}
+
+// ICEROCK --> GLACEON
+var deButton = document.querySelector(".icestone");
+var glaceon = document.querySelector(".eevee");
+
+deButton.addEventListener("click", EvolveGlaceon);
+
+function EvolveGlaceon() {
+	glaceon.classList.toggle("icestoneEvolve");
+}
+
+// MOSS --> LEAFEON
+var deButton = document.querySelector(".moss");
+var leafeon = document.querySelector(".eevee");
+
+deButton.addEventListener("click", EvolveLeafeon);
+
+function EvolveLeafeon() {
+	leafeon.classList.toggle("mossEvolve");
+}

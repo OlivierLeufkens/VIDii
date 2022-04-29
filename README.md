@@ -114,9 +114,6 @@ Blauw
   Tijdsdruk was bij dit vak wel een vuilkuil, waardoor sommigen elementen niet volledig zijn ontwikkeld zoals ik gewild had. Zo is de evolutie van espeon niet ontwikkeld. Bij het vervolg van projecten is het daarom van belang om een goede planning te maken, voordat ik begin aan mijn ontwerp.
 
   Ik sluit af dat ik wel trots ben wat ik geleverd heb. Ik had nooit gedacht dat ik dit mij zou lukken met code.
-
-
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
 </details>
 
 ## Bronnenlijst
